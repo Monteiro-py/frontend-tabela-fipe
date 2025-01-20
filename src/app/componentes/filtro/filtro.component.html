@@ -1,0 +1,39 @@
+
+<app-container>
+<section>   
+    <label><h2>TABELA FIPE</h2></label>
+     
+    <select (change)="obterVeiculos($event)" class="marcas-carros" #marcaModel="ngModel"  [(ngModel)]="opcaoSelecionada">
+        <option value="">Escolha uma das marcas</option>
+        @for(elementos of marcas; track elementos){
+            <option >{{elementos.nome}}</option>
+        }  
+       </select>
+    <select (change)="obterEspecificacaoVeiculos($event)"#veiculoModel="ngModel"  [(ngModel)]="carroBuscado">
+            <option>Escolha um dos veículos</option>
+        @for (veiculo of veiculos2; track veiculo) {
+            <option >{{veiculo.nome}}</option>
+        }
+        </select>
+    <select (click)="obterAnoEcombustivel($event)"#modeloModel="ngModel"  [(ngModel)]="modeloBuscado">
+            <option>Escolha um dos modelos</option>    
+        @for(especificacao of especificacoes; track especificacao;){
+                <option >{{especificacao.nome}}</option>
+            }
+        </select>
+        @if(marcaModel.touched && opcaoSelecionada==="" || veiculoModel.touched && carroBuscado==="" || modeloModel.touched && modeloBuscado===""){
+            <h2 class="mensagem-erro">Preencha todos os campos!</h2>
+        }@if (informacaoPronta===true ) {   
+            @if(opcaoSelecionada==="" || carroBuscado==="" ||  modeloBuscado===""){
+                <h2 class="mensagem-erro">Preencha todos os campos!</h2>
+            }
+        }
+        <div class="botoes">
+            <button (click)="obterEspecificacaoCompleta()">CONSULTAR</button>
+            <button (click)="resetarEspecificacoCompleta()">RESETAR</button>
+        </div>
+
+    </section>
+</app-container>
+   
+

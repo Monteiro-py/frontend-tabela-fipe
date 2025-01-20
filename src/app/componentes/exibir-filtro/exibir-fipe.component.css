@@ -1,0 +1,75 @@
+
+*{padding: 0%;
+margin: 0%;}
+section{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-sizing:border-box;
+    margin: 80px auto;
+    max-width: 90%;
+    width: 686px;
+    gap: 16px;
+}
+div{
+    padding: 0%;
+    margin: 0%;
+    display: flex;
+    justify-content: left;
+    padding-top: 5%;
+    padding-left: 35.5%;
+    width: 150px;
+}
+.botao-voltar{
+    display: flex;
+    justify-content: left;
+    padding-right: 80%;
+}
+.botao-voltar button{
+    background-color: #e0e0e0;;
+    cursor: pointer;
+    width: 136px;
+    padding: 2px 52px;
+    border-radius: 4px;
+    padding-bottom: 80%;
+}
+
+section p{
+    font-family: "MontSerrat";
+    font-size: 22px;
+    padding: 5%;
+    
+}
+section .enfatizar{
+    padding: 1em;
+    width: 100%;
+    font-size: 22px;
+    background-color: #404040;
+    color: #ffffff;
+    
+}
+@media screen and (min-width: 720px) {
+    select {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-sizing:border-box;
+    margin: 80px auto;
+    max-width: 90%;
+    width: 686px;
+    gap: 16px;
+    }
+    .botao-voltar{
+        display: flex;
+        justify-content: left;
+        padding-right: 136%;}
+
+    .botao-voltar button{
+        background-color: #e0e0e0;;
+        cursor: pointer;
+        width: 186px;
+        padding: 4px 72px;
+        border-radius: 4px;
+        padding-bottom: 80%;
+    }
+}

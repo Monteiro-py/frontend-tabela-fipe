@@ -1,0 +1,16 @@
+section{
+    display: flex;
+    flex-direction: row;
+    gap:32px;
+   
+}
+button{
+    color: #F2F2F2;
+    cursor: pointer;
+    background: none;
+    border: none;
+    font-size: 26px;   
+}
+button:hover {
+    color: red;
+}
