@@ -1,11 +1,11 @@
 export interface EspecificacaoCompleta {
-    TipoVeiculo:string,
-    Valor:string,
-    Marca:string,
-    Modelo:string,
-    Anomodelo:string,
-    Combustivel:string,
-    CodigoFipe:string,
-    MesReferencia:string,
-    SiglaCombustivel:string
+    tipoVeiculo:string,
+    valor:string,
+    marca:string,
+    modelo:string,
+    anoModelo:string,
+    combustivel:string,
+    codigoFipe:string,
+    mesReferencia:string,
+    siglaCombustivel:string
 }

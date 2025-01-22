@@ -9,7 +9,7 @@ import { HttpClient } from '@angular/common/http';
   providedIn: 'root'
 })
 export class ServiceService {
-  private readonly API='http://localhost:8080/marcas'
+  private readonly API='https://backend-tabela-fipe-production.up.railway.app/marcas'
   constructor(private http: HttpClient) { }
 
   obterListaDeMarcas():Observable<Marcas[]>{

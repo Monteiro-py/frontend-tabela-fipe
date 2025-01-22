@@ -10,21 +10,20 @@ import { EspecificacaoCompleta } from '../../interfaces/especificacao-completa';
   styleUrl: './exibir-fipe.component.css'
 })
 export class ExibirFipeComponent {
-     especificacaoCompleta:EspecificacaoCompleta={TipoVeiculo:'',
-        Valor:'',
-        Marca:'',
-        Modelo:'',
-        Anomodelo:'',
-        Combustivel:'',
-        CodigoFipe:'',
-        MesReferencia:'',
-        SiglaCombustivel:''}
+     especificacaoCompleta:EspecificacaoCompleta={tipoVeiculo:'',
+        valor:'',
+        marca:'',
+        modelo:'',
+        anoModelo:'',
+        combustivel:'',
+        codigoFipe:'',
+        mesReferencia:'',
+        siglaCombustivel:''}
       
   constructor(private route: ActivatedRoute){
     const especificacaoJson = localStorage.getItem('especificacao');
   if (especificacaoJson !=null) {
     this.especificacaoCompleta = JSON.parse(especificacaoJson); 
-    console.log(this.especificacaoCompleta+"foi");
      }
   }
 }

@@ -12,4 +12,5 @@ import { CabecalhoComponent } from './componentes/cabecalho/cabecalho.component'
 })
 export class AppComponent {
   title = 'project2';
+  
 }
