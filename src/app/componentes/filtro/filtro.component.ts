@@ -57,12 +57,9 @@ export class FiltroComponent implements OnInit {
      
   }
   obterVeiculos(event:Event){
-    console.log("NgModule"+this.opcaoSelecionada)
     const opcoes=event.target as HTMLSelectElement;
     const carroSelecionado=opcoes.value
     this.marcaSelecionada=carroSelecionado;
-    console.log(carroSelecionado);
-    console.log(this.marcaSelecionada);
     this.service.enviarMarcaEscolhida(this.marcaSelecionada).subscribe((carros)=>{
       this.veiculos2=carros.modelos;
       
@@ -71,7 +68,6 @@ export class FiltroComponent implements OnInit {
   obterEspecificacaoVeiculos(event:Event){
     const opcoes=event.target as HTMLSelectElement;
     const carroSelecionado=opcoes.value;
-    console.log(carroSelecionado)
     this.service.enviarCarroSelecionado(carroSelecionado).subscribe((especificacao)=>{
       this.especificacoes=especificacao;
       })
@@ -84,6 +80,7 @@ export class FiltroComponent implements OnInit {
   
   obterEspecificacaoCompleta(){
     this.informacaoPronta=true;
+
     this.service.enviarAnoEcombustivel(this.combustivelAndAno).subscribe((especificacao)=>{ this.especificacaoCompleta={tipoVeiculo:especificacao.tipoVeiculo,
     valor:especificacao.valor,
     marca:especificacao.marca,
@@ -97,8 +94,9 @@ export class FiltroComponent implements OnInit {
     
     
     localStorage.setItem('especificacao', JSON.stringify(this.especificacaoCompleta));
-    this.router.navigate(['/especificacoes']);
+    
   })
+  this.router.navigate(['/especificacoes']);
   }
   resetarEspecificacoCompleta(){
     window.location.reload(); 
