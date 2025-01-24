@@ -26,7 +26,7 @@
             </div>
         </div>
         <div class="form-group">
-        <select formControlName="modelo" (click)="obterAnoEcombustivel($event)">
+        <select formControlName="modelo" (change)="obterAnoEcombustivel($event)">
                 <option>Escolha um dos modelos</option>    
             @for(especificacao of especificacoes; track especificacao;){
                     <option >{{especificacao.nome}}</option>
