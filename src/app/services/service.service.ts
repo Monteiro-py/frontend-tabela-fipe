@@ -1,9 +1,9 @@
 import { Injectable } from '@angular/core';
-import { Marcas } from './interfaces/marca';
-import { Veiculos } from './interfaces/veiculos';
-import { EspecificacaoCompleta } from './interfaces/especificacao-completa';
 import { Observable } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
+import { Marcas } from '../interfaces/marca';
+import { Veiculos } from '../interfaces/veiculos';
+import { EspecificacaoCompleta } from '../interfaces/especificacao-completa';
 
 @Injectable({
   providedIn: 'root'

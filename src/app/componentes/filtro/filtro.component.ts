@@ -5,8 +5,10 @@ import { EspecificacaoCompleta } from '../../interfaces/especificacao-completa';
 import { FormControl, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
 import { Router, RouterLink } from '@angular/router';
 import { ContainerComponent } from "../container/container.component";
-import { ServiceService } from '../../service.service';
+
 import { CommonModule } from '@angular/common';
+import { ServiceService } from '../../services/service.service';
+import { DataServiceService } from '../../services/data-service.service';
 
 @Component({
   selector: 'app-filtro',
@@ -23,15 +25,13 @@ export class FiltroComponent implements OnInit {
   veiculos2:Marcas[]=[];
   especificacoes:Marcas[]=[];
   combustivelAndAno:string='';
-  especificacaoCompleta:EspecificacaoCompleta={tipoVeiculo:'',
+  especificacaoCompleta:EspecificacaoCompleta={
     valor:'',
     marca:'',
     modelo:'',
     anoModelo:'',
     combustivel:'',
-    codigoFipe:'',
-    mesReferencia:'',
-    siglaCombustivel:''}
+    mesReferencia:''}
 
   opcaoSelecionada=''
   carroBuscado=''
@@ -39,7 +39,7 @@ export class FiltroComponent implements OnInit {
 
   informacaoPronta:boolean=false;
 
-  constructor(private service:ServiceService, private router:Router){}
+  constructor(private service:ServiceService,private dataService:DataServiceService ,private router:Router){}
   momentFomrs!:FormGroup;
 
   ngOnInit(): void {
@@ -70,7 +70,7 @@ export class FiltroComponent implements OnInit {
     const carroSelecionado=opcoes.value;
     this.service.enviarCarroSelecionado(carroSelecionado).subscribe((especificacao)=>{
       this.especificacoes=especificacao;
-      })
+    })
   }
   obterAnoEcombustivel(event:Event){
     const opcoes=event.target as HTMLSelectElement;
@@ -80,24 +80,18 @@ export class FiltroComponent implements OnInit {
   
   obterEspecificacaoCompleta(){
     this.informacaoPronta=true;
-
-    this.service.enviarAnoEcombustivel(this.combustivelAndAno).subscribe((especificacao)=>{ this.especificacaoCompleta={tipoVeiculo:especificacao.tipoVeiculo,
+    this.service.enviarAnoEcombustivel(this.combustivelAndAno).subscribe((especificacao)=>{ this.especificacaoCompleta={
     valor:especificacao.valor,
     marca:especificacao.marca,
     modelo:especificacao.modelo,
     anoModelo:especificacao.anoModelo,
     combustivel:especificacao.combustivel,
-    codigoFipe:especificacao.codigoFipe,
     mesReferencia:especificacao.mesReferencia,
-    siglaCombustivel:especificacao.siglaCombustivel
     }
+    this.dataService.setEspecificacaoCompleta(this.especificacaoCompleta);
+    this.router.navigate(['/especificacoes']);
     
-    
-    localStorage.setItem('especificacao', JSON.stringify(this.especificacaoCompleta));
-    
-  })
-  this.router.navigate(['/especificacoes']);
-  }
+  })}
   resetarEspecificacoCompleta(){
     window.location.reload(); 
   }  
