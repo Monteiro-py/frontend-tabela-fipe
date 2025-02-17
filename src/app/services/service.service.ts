@@ -9,7 +9,7 @@ import { EspecificacaoCompleta } from '../interfaces/especificacao-completa';
   providedIn: 'root'
 })
 export class ServiceService {
-  private readonly API='https://backend-tabela-fipe-production.up.railway.app/marcas'
+  private readonly API='https://backend-tabela-fipe-production-550d.up.railway.app/marcas'
   constructor(private http: HttpClient) { }
 
   obterListaDeMarcas():Observable<Marcas[]>{
